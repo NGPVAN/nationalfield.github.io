@@ -1,0 +1,377 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>NationalField by nationalfield</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>NationalField</h1>
+        <p></p>
+
+
+        <p class="view"><a href="https://github.com/nationalfield">View My GitHub Profile</a></p>
+
+      </header>
+      <section>
+        <h1>
+<a name="nationalfield-api" class="anchor" href="#nationalfield-api"><span class="octicon octicon-link"></span></a>NationalField API</h1>
+
+<h2>
+<a name="request-api-access" class="anchor" href="#request-api-access"><span class="octicon octicon-link"></span></a>Request API Access</h2>
+
+<p>To request access to the NationalField API, please contact <a href="mailto:helpdesk@nationalfield.com">helpdesk@nationalfield.com</a>.</p>
+
+<h2>
+<a name="requests" class="anchor" href="#requests"><span class="octicon octicon-link"></span></a>Requests</h2>
+
+<h3>
+<a name="url" class="anchor" href="#url"><span class="octicon octicon-link"></span></a>URL</h3>
+
+<p>The NationalField API uses HTTP for transmitting requests and responses. The base URL for API requests is:</p>
+
+<pre><code>https://[CUSTOMER].nationalfield.com/api/[VERSION]
+</code></pre>
+
+<p>The version number (currently v1) will only be changed when we have to make a backwards-incompatible upgrade. The old version will be available afterwards for a specified amount of time.</p>
+
+<h3>
+<a name="method" class="anchor" href="#method"><span class="octicon octicon-link"></span></a>Method</h3>
+
+<p>The API uses a RESTful design. Requests must be made with the proper method: GET, POST, UPDATE, or DELETE. See the detailed documentation for the method required by a specific request.</p>
+
+<h3>
+<a name="authentication" class="anchor" href="#authentication"><span class="octicon octicon-link"></span></a>Authentication</h3>
+
+<p>The NationalField API uses OAuth 2.0, the same standard used by Facebook and Foursquare, among others. OAuth 2.0 is still a draft specification, so there may be minor differences between implementations. The instructions here will allow your application to successfully authenticate with NationalField. For security, all API requests, including redirects for user action, must be made over HTTPS.</p>
+
+<h4>
+<a name="registration" class="anchor" href="#registration"><span class="octicon octicon-link"></span></a>Registration</h4>
+
+<p>All applications that use the API to access NationalField must be registered. After registration you will be provided with an API key and shared secret.</p>
+
+<h4>
+<a name="access-token" class="anchor" href="#access-token"><span class="octicon octicon-link"></span></a>Access Token</h4>
+
+<h5>
+<a name="authorization-code-grant-for-server-side-clients" class="anchor" href="#authorization-code-grant-for-server-side-clients"><span class="octicon octicon-link"></span></a>Authorization Code Grant (for server-side clients)</h5>
+
+<p>This is the preferred method for retrieving and access token. In Step 1, you can replace “authenticate” in the URL with “authorize”. If the user has already authorized the application, they will not be prompted to do so again in Step 2 and they will immediately be redirected back to your URL.</p>
+
+<ol>
+<li>
+<p>Obtain an authorization code. Redirect the user to:</p>
+
+<pre><code>https://[CUSTOMER].nationalfield.com/oauth/authenticate
+?client_id=YOUR_CLIENT_ID
+&amp;response_type=code
+&amp;redirect_uri=YOUR_REDIRECT_URI
+</code></pre>
+</li>
+<li>
+<p>The user will be prompted to log in to NationalField if they are not already, and will be prompted to authorize your application. After they respond, the user will be redirected back to your application with the response appended to the query string.
+If the user authorizes your application, the query string will contain:</p>
+
+<pre><code>code=AUTHORIZATION_CODE
+</code></pre>
+
+<p>If the user does not authorize your application, the query string will contain:</p>
+
+<pre><code>error=ERROR_CODE
+</code></pre>
+</li>
+<li>
+<p>Exchange the authorization code for an access token. Your server should make a request for:</p>
+
+<pre><code>https://[CUSTOMER].nationalfield.com/oauth/access_token
+?client_id=YOUR_CLIENT_ID
+&amp;client_secret=YOUR_CLIENT_SECRET
+&amp;grant_type=authorization_code
+&amp;redirect_uri=YOUR_REDIRECT_URI
+&amp;code=AUTHORIZATION_CODE
+</code></pre>
+</li>
+<li>
+<p>The response will be a JSON object. If the code is valid the response will be:</p>
+
+<pre><code>{
+    “token_type”: “bearer”,
+    “access_token”: TOKEN
+}
+</code></pre>
+
+<p>If the code is not valid, the response will include an error message.</p>
+</li>
+<li><p>Save the access token for re-use</p></li>
+</ol><h5>
+<a name="implicit-grant-for-browser-based-clients" class="anchor" href="#implicit-grant-for-browser-based-clients"><span class="octicon octicon-link"></span></a>Implicit Grant (for browser-based clients)</h5>
+
+<p>Clients using this method must have a defined redirect URL. The URL passed in Step 1 will be matched against this. In Step 1, you can replace “authenticate” in the URL with “authorize”. If the user has already authorized the application, they will not be prompted to do so again in Step 2 and they will immediately be redirected back to your URL.</p>
+
+<ol>
+<li>
+<p>Redirect the user to:</p>
+
+<pre><code>https://[CUSTOMER].nationalfield.com/oauth/authenticate
+?client_id=YOUR_CLIENT_ID
+&amp;response_type=token
+&amp;redirect_uri=YOUR_REDIRECT_URI
+</code></pre>
+</li>
+<li>
+<p>The user will be prompted to log in to NationalField if they are not already, and will be prompted to authorize your application. The user will then be redirected back to your application, with the response in the URL fragment.</p>
+
+<p>If the user has authorized your application, the fragment will include:</p>
+
+<pre><code>token_type=bearer&amp;access_token=ACCESS_TOKEN
+</code></pre>
+
+<p>If the user does not authorize your application, the fragment will include:</p>
+
+<pre><code>error=ERROR_CODE
+</code></pre>
+</li>
+<li><p>Save the access token for re-use</p></li>
+</ol><h4>
+<a name="making-requests" class="anchor" href="#making-requests"><span class="octicon octicon-link"></span></a>Making Requests</h4>
+
+<p>All requests to the NationalField API require authentication.</p>
+
+<h5>
+<a name="header-based-authentication" class="anchor" href="#header-based-authentication"><span class="octicon octicon-link"></span></a>Header-based Authentication</h5>
+
+<p>This is the preferred method of authentication. Add the following HTTP to all requests:</p>
+
+<pre><code>Authorization: Bearer [B64TOKEN]
+</code></pre>
+
+<p>To create the [B64TOKEN] value encode the access token using MIME Base 64.</p>
+
+<h5>
+<a name="parameter-based-authentication" class="anchor" href="#parameter-based-authentication"><span class="octicon octicon-link"></span></a>Parameter-based Authentication</h5>
+
+<p>This method should only be used if a header cannot be set. The access token can be added to the query string of the API request:</p>
+
+<pre><code>/api/v1/hello?access_token=ACCESS_TOKEN
+</code></pre>
+
+<h3>
+<a name="format-requests-format" class="anchor" href="#format-requests-format"><span class="octicon octicon-link"></span></a>Format {#requests-format}</h3>
+
+<p>The preferred format for sending data to the api (using POST or PUT requests) is JSON. Other formats may be available. The format MUST be sepecified using the “Content-Type” head in the request.</p>
+
+<table>
+<thead><tr>
+<th>Format</th>
+<th>Content-Type</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>JSON</td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>URL-encoded</td>
+<td>application/x-url-form-encoded</td>
+</tr>
+</tbody>
+</table><h3>
+<a name="parameters-requests-parameters" class="anchor" href="#parameters-requests-parameters"><span class="octicon octicon-link"></span></a>Parameters {#requests-parameters}</h3>
+
+<p>A common set of parameters is used throughout the API for common tasks.</p>
+
+<h4>
+<a name="pagination" class="anchor" href="#pagination"><span class="octicon octicon-link"></span></a>Pagination</h4>
+
+<p>All responses consisting of an array of objects are paginated.</p>
+
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>page</td>
+<td>Page number of results to return</td>
+<td>integer</td>
+<td>1</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>Number of items to return per page</td>
+<td>integer</td>
+<td>20</td>
+</tr>
+</tbody>
+</table><h4>
+<a name="stream-item-type" class="anchor" href="#stream-item-type"><span class="octicon octicon-link"></span></a>Stream Item Type</h4>
+
+<p>An array of stream items can be filtered by post type using the parameter <code>type</code>. The following types are available. The type parameter should be sent as a comma-seperated list.</p>
+
+<table>
+<thead><tr>
+<th>Value</th>
+<th>Stream Item Type</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>announcements</td>
+<td><a href="#objects-announcement">Announcement</a></td>
+</tr>
+<tr>
+<td>brestpractices</td>
+<td><a href="#objects-bestpractice">Best Practice</a></td>
+</tr>
+<tr>
+<td>upsandchallenges</td>
+<td><a href="#objects-updown">Ups &amp; Challenge</a></td>
+</tr>
+</tbody>
+</table><h3>
+<a name="resources-requests-resources" class="anchor" href="#resources-requests-resources"><span class="octicon octicon-link"></span></a>Resources {#requests-resources}</h3>
+
+<p>Where possible, endpoints represent resources, both collections and individual items. In this case, the pattern of URLs to actions is as follows:</p>
+
+<table>
+<thead><tr>
+<th>URL</th>
+<th>HTTP Method</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>/PATH</td>
+<td>GET</td>
+<td>List available items.</td>
+</tr>
+<tr>
+<td>/PATH</td>
+<td>POST</td>
+<td>Create new item.</td>
+</tr>
+<tr>
+<td>/PATH/ID</td>
+<td>GET</td>
+<td>Read item details.</td>
+</tr>
+<tr>
+<td>/PATH/ID</td>
+<td>PUT</td>
+<td>Update an item.</td>
+</tr>
+<tr>
+<td>/PATH/ID</td>
+<td>DELETE</td>
+<td>Delete an item.</td>
+</tr>
+</tbody>
+</table><h2>
+<a name="responses-responses" class="anchor" href="#responses-responses"><span class="octicon octicon-link"></span></a>Responses {#responses}</h2>
+
+<h3>
+<a name="format-responses-format" class="anchor" href="#format-responses-format"><span class="octicon octicon-link"></span></a>Format {#responses-format}</h3>
+
+<p>The response format should be requested using the HTTP Content-Type header. The following formats are currently available:</p>
+
+<table>
+<thead><tr>
+<th>Format</th>
+<th>MIME Type</th>
+</tr></thead>
+<tbody><tr>
+<td>JSON (default)</td>
+<td>application/json</td>
+</tr></tbody>
+</table><h3>
+<a name="successful-responses-responses-success" class="anchor" href="#successful-responses-responses-success"><span class="octicon octicon-link"></span></a>Successful Responses {#responses-success}</h3>
+
+<p>Successful requests will return with a 2xx status code. (Generally, requests retrieving data will return <code>200 OK</code> and requests adding data will return <code>201 Created</code>.)  There is no wrapper for the data.</p>
+
+<p>Example:
+<code>GET /api/v1/hello</code></p>
+
+<pre><code>{
+    “message”: “Hello World”
+}
+</code></pre>
+
+<h3>
+<a name="error-responses-responses-error" class="anchor" href="#error-responses-responses-error"><span class="octicon octicon-link"></span></a>Error Responses {#responses-error}</h3>
+
+<p>Error responses will be returned with a related HTTP status code. Common status codes include:</p>
+
+<table>
+<thead><tr>
+<th>Code</th>
+<th>Text</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>401</td>
+<td>Not Authorized</td>
+<td>You did not send authorization credentials or you do not have permission to perform the requested action.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td>The resource you are accessing does not exist.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td>The resource is unavailable. (This error will be returned if the API is not enabled for the client.)</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed</td>
+<td>The resource you are accessing exists, but does not accept the HTTP method you are using.</td>
+</tr>
+<tr>
+<td>415</td>
+<td>Unsupported Media Type</td>
+<td>The request was sent using a format that the API cannot accept.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error</td>
+<td>A server error occurred.</td>
+</tr>
+<tr>
+<td>501</td>
+<td>Not Implemented</td>
+<td>Your request was correct but the server cannot fulfil it.</td>
+</tr>
+</tbody>
+</table><p>Also, the response body will include an error object. The element will include a human-readable message.</p>
+
+<p>Example:
+<code>DELETE /api/v1/users/1</code></p>
+
+<pre><code>{
+    “error”: {
+        “message”: “Method Not Allowed”
+    }
+}
+</code></pre>
+      </section>
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
