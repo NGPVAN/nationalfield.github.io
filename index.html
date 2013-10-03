@@ -23,47 +23,35 @@
 
       </header>
       <section>
-        <h1>
-<a name="nationalfield-api" class="anchor" href="#nationalfield-api"><span class="octicon octicon-link"></span></a>NationalField API</h1>
+        <div id="documentation">
+        <div class="maruku_toc"><ul style="list-style: none;"><li><span class="maruku_section_number">1. </span><a href="#requests">Requests</a><ul style="list-style: none;"><li><span class="maruku_section_number">1.1. </span><a href="#requests-url">URL</a></li><li><span class="maruku_section_number">1.2. </span><a href="#requests-method">Method</a></li><li><span class="maruku_section_number">1.3. </span><a href="#requests-authentication">Authentication</a><ul style="list-style: none;"><li><span class="maruku_section_number">1.3.1. </span><a href="#registration">Registration</a></li><li><span class="maruku_section_number">1.3.2. </span><a href="#access_token">Access Token</a><ul style="list-style: none;"><li><span class="maruku_section_number">1.3.2.1. </span><a href="#authorization_code_grant_for_serverside_clients">Authorization Code Grant (for server-side clients)</a></li><li><span class="maruku_section_number">1.3.2.2. </span><a href="#implicit_grant_for_browserbased_clients">Implicit Grant (for browser-based clients)</a></li></ul></li><li><span class="maruku_section_number">1.3.3. </span><a href="#making_requests">Making Requests</a><ul style="list-style: none;"><li><span class="maruku_section_number">1.3.3.1. </span><a href="#headerbased_authentication">Header-based Authentication</a></li><li><span class="maruku_section_number">1.3.3.2. </span><a href="#parameterbased_authentication">Parameter-based Authentication</a></li></ul></li></ul></li><li><span class="maruku_section_number">1.4. </span><a href="#requests-format">Format</a></li><li><span class="maruku_section_number">1.5. </span><a href="#requests-parameters">Parameters</a><ul style="list-style: none;"><li><span class="maruku_section_number">1.5.1. </span><a href="#pagination">Pagination</a></li><li><span class="maruku_section_number">1.5.2. </span><a href="#stream_item_type">Stream Item Type</a></li></ul></li><li><span class="maruku_section_number">1.6. </span><a href="#requests-resources">Resources</a></li></ul></li><li><span class="maruku_section_number">2. </span><a href="#responses">Responses</a><ul style="list-style: none;"><li><span class="maruku_section_number">2.1. </span><a href="#responses-format">Format</a></li><li><span class="maruku_section_number">2.2. </span><a href="#responses-success">Successful Responses</a></li><li><span class="maruku_section_number">2.3. </span><a href="#responses-error">Error Responses</a></li></ul></li><li><span class="maruku_section_number">3. </span><a href="#endpoints">Endpoints</a><ul style="list-style: none;"><li><span class="maruku_section_number">3.1. </span><a href="#applications">Applications</a><ul style="list-style: none;"><li><span class="maruku_section_number">3.1.1. </span><a href="#list_applications">List applications</a></li></ul></li><li><span class="maruku_section_number">3.2. </span><a href="#endpoints-groups">Groups</a><ul style="list-style: none;"><li><span class="maruku_section_number">3.2.1. </span><a href="#list_groups">List groups</a></li><li><span class="maruku_section_number">3.2.2. </span><a href="#get_group_information">Get group information</a></li><li><span class="maruku_section_number">3.2.3. </span><a href="#get_a_group_profile_stream">Get a group profile stream</a></li><li><span class="maruku_section_number">3.2.4. </span><a href="#post_a_status_to_a_group">Post a status to a group</a></li></ul></li><li><span class="maruku_section_number">3.3. </span><a href="#endpoints-leaderboards">Leaderboards</a><ul style="list-style: none;"><li><span class="maruku_section_number">3.3.1. </span><a href="#list_available_leaderboards">List available leaderboards</a></li><li><span class="maruku_section_number">3.3.2. </span><a href="#view_specific_leaderboard">View Specific Leaderboard</a></li><li><span class="maruku_section_number">3.3.3. </span><a href="#a_profiles_position_in_a_leaderboard">A Profile’s Position in a Leaderboard</a></li></ul></li><li><span class="maruku_section_number">3.4. </span><a href="#endpoints-notifications">Notifications</a><ul style="list-style: none;"><li><span class="maruku_section_number">3.4.1. </span><a href="#list_a_users_notifications">List a user’s notifications</a></li></ul></li><li><span class="maruku_section_number">3.5. </span><a href="#endpoints-reporting">Reporting</a><ul style="list-style: none;"><li><span class="maruku_section_number">3.5.1. </span><a href="#list_reports_for_a_user">List reports for a user</a></li><li><span class="maruku_section_number">3.5.2. </span><a href="#get_a_users_report_from_a_specific_date">Get a users report from a specific date</a></li><li><span class="maruku_section_number">3.5.3. </span><a href="#report_qualitative_metrics">Report qualitative metrics</a></li><li><span class="maruku_section_number">3.5.4. </span><a href="#metrics">Metrics</a></li><li><span class="maruku_section_number">3.5.5. </span><a href="#metrics_reportable_by_a_user">Metrics reportable by a user</a></li></ul></li><li><span class="maruku_section_number">3.6. </span><a href="#endpoints-roles">Roles</a><ul style="list-style: none;"><li><span class="maruku_section_number">3.6.1. </span><a href="#list_roles">List roles</a></li><li><span class="maruku_section_number">3.6.2. </span><a href="#get_role_information">Get role information</a></li></ul></li><li><span class="maruku_section_number">3.7. </span><a href="#endpoints-stream">Stream</a><ul style="list-style: none;"><li><span class="maruku_section_number">3.7.1. </span><a href="#get_a_users_home_stream">Get a user’s home stream</a></li><li><span class="maruku_section_number">3.7.2. </span><a href="#get_a_stream_item">Get a stream item</a></li><li><span class="maruku_section_number">3.7.3. </span><a href="#get_comments_for_a_stream_item">Get comments for a stream item</a></li><li><span class="maruku_section_number">3.7.4. </span><a href="#post_a_comment_to_a_stream_item">Post a comment to a stream item</a></li><li><span class="maruku_section_number">3.7.5. </span><a href="#get_a_single_comment_on_a_stream_item">Get a single comment on a stream item</a></li><li><span class="maruku_section_number">3.7.6. </span><a href="#delete_a_comment_on_a_stream_item">Delete a comment on a stream item</a></li></ul></li><li><span class="maruku_section_number">3.8. </span><a href="#endpoints-users">Users</a><ul style="list-style: none;"><li><span class="maruku_section_number">3.8.1. </span><a href="#list_users">List users</a></li><li><span class="maruku_section_number">3.8.2. </span><a href="#get_user_information">Get User Information</a></li><li><span class="maruku_section_number">3.8.3. </span><a href="#get_a_user_profile_stream">Get a user profile stream</a></li><li><span class="maruku_section_number">3.8.4. </span><a href="#post_a_status">Post a status</a></li><li><span class="maruku_section_number">3.8.5. </span><a href="#post_to_another_users_wall">Post to another user’s wall</a></li></ul></li></ul></li><li><span class="maruku_section_number">4. </span><a href="#objects">Objects</a><ul style="list-style: none;"><li><span class="maruku_section_number">4.1. </span><a href="#objects-announcement">Announcement</a></li><li><span class="maruku_section_number">4.2. </span><a href="#objects-application">Application</a></li><li><span class="maruku_section_number">4.3. </span><a href="#objects-bestpractice">Best Practice</a></li><li><span class="maruku_section_number">4.4. </span><a href="#objects-comment">Comment</a></li><li><span class="maruku_section_number">4.5. </span><a href="#objects-event">Event</a></li><li><span class="maruku_section_number">4.6. </span><a href="#objects-file">File</a></li><li><span class="maruku_section_number">4.7. </span><a href="#objects-group">Group</a></li><li><span class="maruku_section_number">4.8. </span><a href="#objects-location">Location</a></li><li><span class="maruku_section_number">4.9. </span><a href="#objects-note">Note</a></li><li><span class="maruku_section_number">4.10. </span><a href="#objects-notification">Notification</a></li><li><span class="maruku_section_number">4.11. </span><a href="#objects-report">Report</a></li><li><span class="maruku_section_number">4.12. </span><a href="#objects-reportcategory">Report Category</a></li><li><span class="maruku_section_number">4.13. </span><a href="#objects-reportmetric">Report Metric</a></li><li><span class="maruku_section_number">4.14. </span><a href="#objects-reportvalue">Report Value</a></li><li><span class="maruku_section_number">4.15. </span><a href="#objects-role">Role</a></li><li><span class="maruku_section_number">4.16. </span><a href="#objects-streamitem">Stream Item</a></li><li><span class="maruku_section_number">4.17. </span><a href="#objects-updown">Up &amp; Challenge</a></li><li><span class="maruku_section_number">4.18. </span><a href="#objects-user">User</a></li></ul></li><li><span class="maruku_section_number">5. </span><a href="#activitystreams">About Activity Streams</a><ul style="list-style: none;"><li><span class="maruku_section_number">5.1. </span><a href="#activitystreams-verb">Verb</a></li><li><span class="maruku_section_number">5.2. </span><a href="#activitystreams-actor">Actor</a></li><li><span class="maruku_section_number">5.3. </span><a href="#activitystreams-object">Object</a></li><li><span class="maruku_section_number">5.4. </span><a href="#activitystreams-target">Target</a></li></ul></li></ul></div>
+<h1 id="nationalfield_api">NationalField API</h1>
 
-<h2>
-<a name="request-api-access" class="anchor" href="#request-api-access"><span class="octicon octicon-link"></span></a>Request API Access</h2>
+<h2 id="requests"><span class="maruku_section_number">1. </span>Requests</h2>
 
-<p>To request access to the NationalField API, please contact <a href="mailto:helpdesk@nationalfield.com">helpdesk@nationalfield.com</a>.</p>
-
-<h2>
-<a name="requests" class="anchor" href="#requests"><span class="octicon octicon-link"></span></a>Requests</h2>
-
-<h3>
-<a name="url" class="anchor" href="#url"><span class="octicon octicon-link"></span></a>URL</h3>
+<h3 id="requests-url"><span class="maruku_section_number">1.1. </span>URL</h3>
 
 <p>The NationalField API uses HTTP for transmitting requests and responses. The base URL for API requests is:</p>
 
-<pre><code>https://[CUSTOMER].nationalfield.com/api/[VERSION]
-</code></pre>
+<pre><code>https://[CUSTOMER].nationalfield.com/api/[VERSION]</code></pre>
 
 <p>The version number (currently v1) will only be changed when we have to make a backwards-incompatible upgrade. The old version will be available afterwards for a specified amount of time.</p>
 
-<h3>
-<a name="method" class="anchor" href="#method"><span class="octicon octicon-link"></span></a>Method</h3>
+<h3 id="requests-method"><span class="maruku_section_number">1.2. </span>Method</h3>
 
 <p>The API uses a RESTful design. Requests must be made with the proper method: GET, POST, UPDATE, or DELETE. See the detailed documentation for the method required by a specific request.</p>
 
-<h3>
-<a name="authentication" class="anchor" href="#authentication"><span class="octicon octicon-link"></span></a>Authentication</h3>
+<h3 id="requests-authentication"><span class="maruku_section_number">1.3. </span>Authentication</h3>
 
 <p>The NationalField API uses OAuth 2.0, the same standard used by Facebook and Foursquare, among others. OAuth 2.0 is still a draft specification, so there may be minor differences between implementations. The instructions here will allow your application to successfully authenticate with NationalField. For security, all API requests, including redirects for user action, must be made over HTTPS.</p>
 
-<h4>
-<a name="registration" class="anchor" href="#registration"><span class="octicon octicon-link"></span></a>Registration</h4>
+<h4 id="registration"><span class="maruku_section_number">1.3.1. </span>Registration</h4>
 
 <p>All applications that use the API to access NationalField must be registered. After registration you will be provided with an API key and shared secret.</p>
 
-<h4>
-<a name="access-token" class="anchor" href="#access-token"><span class="octicon octicon-link"></span></a>Access Token</h4>
+<h4 id="access_token"><span class="maruku_section_number">1.3.2. </span>Access Token</h4>
 
-<h5>
-<a name="authorization-code-grant-for-server-side-clients" class="anchor" href="#authorization-code-grant-for-server-side-clients"><span class="octicon octicon-link"></span></a>Authorization Code Grant (for server-side clients)</h5>
+<h5 id="authorization_code_grant_for_serverside_clients"><span class="maruku_section_number">1.3.2.1. </span>Authorization Code Grant (for server-side clients)</h5>
 
 <p>This is the preferred method for retrieving and access token. In Step 1, you can replace “authenticate” in the URL with “authorize”. If the user has already authorized the application, they will not be prompted to do so again in Step 2 and they will immediately be redirected back to your URL.</p>
 
@@ -71,49 +59,50 @@
 <li>
 <p>Obtain an authorization code. Redirect the user to:</p>
 
-<pre><code>https://[CUSTOMER].nationalfield.com/oauth/authenticate
-?client_id=YOUR_CLIENT_ID
-&amp;response_type=code
-&amp;redirect_uri=YOUR_REDIRECT_URI
-</code></pre>
+<pre><code> https://[CUSTOMER].nationalfield.com/oauth/authenticate
+ ?client_id=YOUR_CLIENT_ID
+ &amp;response_type=code
+ &amp;redirect_uri=YOUR_REDIRECT_URI</code></pre>
 </li>
-<li>
-<p>The user will be prompted to log in to NationalField if they are not already, and will be prompted to authorize your application. After they respond, the user will be redirected back to your application with the response appended to the query string.
-If the user authorizes your application, the query string will contain:</p>
 
-<pre><code>code=AUTHORIZATION_CODE
-</code></pre>
+<li>
+<p>The user will be prompted to log in to NationalField if they are not already, and will be prompted to authorize your application. After they respond, the user will be redirected back to your application with the response appended to the query string. If the user authorizes your application, the query string will contain:</p>
+
+<pre><code> code=AUTHORIZATION_CODE</code></pre>
 
 <p>If the user does not authorize your application, the query string will contain:</p>
 
-<pre><code>error=ERROR_CODE
-</code></pre>
+<pre><code> error=ERROR_CODE</code></pre>
 </li>
+
 <li>
 <p>Exchange the authorization code for an access token. Your server should make a request for:</p>
 
-<pre><code>https://[CUSTOMER].nationalfield.com/oauth/access_token
-?client_id=YOUR_CLIENT_ID
-&amp;client_secret=YOUR_CLIENT_SECRET
-&amp;grant_type=authorization_code
-&amp;redirect_uri=YOUR_REDIRECT_URI
-&amp;code=AUTHORIZATION_CODE
-</code></pre>
+<pre><code> https://[CUSTOMER].nationalfield.com/oauth/access_token
+ ?client_id=YOUR_CLIENT_ID
+ &amp;client_secret=YOUR_CLIENT_SECRET
+ &amp;grant_type=authorization_code
+ &amp;redirect_uri=YOUR_REDIRECT_URI
+ &amp;code=AUTHORIZATION_CODE</code></pre>
 </li>
+
 <li>
 <p>The response will be a JSON object. If the code is valid the response will be:</p>
 
-<pre><code>{
-    “token_type”: “bearer”,
-    “access_token”: TOKEN
-}
-</code></pre>
+<pre><code> {
+     “token_type”: “bearer”,
+     “access_token”: TOKEN
+ }</code></pre>
 
 <p>If the code is not valid, the response will include an error message.</p>
 </li>
-<li><p>Save the access token for re-use</p></li>
-</ol><h5>
-<a name="implicit-grant-for-browser-based-clients" class="anchor" href="#implicit-grant-for-browser-based-clients"><span class="octicon octicon-link"></span></a>Implicit Grant (for browser-based clients)</h5>
+
+<li>
+<p>Save the access token for re-use</p>
+</li>
+</ol>
+
+<h5 id="implicit_grant_for_browserbased_clients"><span class="maruku_section_number">1.3.2.2. </span>Implicit Grant (for browser-based clients)</h5>
 
 <p>Clients using this method must have a defined redirect URL. The URL passed in Step 1 will be matched against this. In Step 1, you can replace “authenticate” in the URL with “authorize”. If the user has already authorized the application, they will not be prompted to do so again in Step 2 and they will immediately be redirected back to your URL.</p>
 
@@ -121,251 +110,823 @@ If the user authorizes your application, the query string will contain:</p>
 <li>
 <p>Redirect the user to:</p>
 
-<pre><code>https://[CUSTOMER].nationalfield.com/oauth/authenticate
-?client_id=YOUR_CLIENT_ID
-&amp;response_type=token
-&amp;redirect_uri=YOUR_REDIRECT_URI
-</code></pre>
+<pre><code> https://[CUSTOMER].nationalfield.com/oauth/authenticate
+ ?client_id=YOUR_CLIENT_ID
+ &amp;response_type=token
+ &amp;redirect_uri=YOUR_REDIRECT_URI</code></pre>
 </li>
+
 <li>
 <p>The user will be prompted to log in to NationalField if they are not already, and will be prompted to authorize your application. The user will then be redirected back to your application, with the response in the URL fragment.</p>
 
 <p>If the user has authorized your application, the fragment will include:</p>
 
-<pre><code>token_type=bearer&amp;access_token=ACCESS_TOKEN
-</code></pre>
+<pre><code> token_type=bearer&amp;access_token=ACCESS_TOKEN</code></pre>
 
 <p>If the user does not authorize your application, the fragment will include:</p>
 
-<pre><code>error=ERROR_CODE
-</code></pre>
+<pre><code> error=ERROR_CODE</code></pre>
 </li>
-<li><p>Save the access token for re-use</p></li>
-</ol><h4>
-<a name="making-requests" class="anchor" href="#making-requests"><span class="octicon octicon-link"></span></a>Making Requests</h4>
+
+<li>
+<p>Save the access token for re-use</p>
+</li>
+</ol>
+
+<h4 id="making_requests"><span class="maruku_section_number">1.3.3. </span>Making Requests</h4>
 
 <p>All requests to the NationalField API require authentication.</p>
 
-<h5>
-<a name="header-based-authentication" class="anchor" href="#header-based-authentication"><span class="octicon octicon-link"></span></a>Header-based Authentication</h5>
+<h5 id="headerbased_authentication"><span class="maruku_section_number">1.3.3.1. </span>Header-based Authentication</h5>
 
 <p>This is the preferred method of authentication. Add the following HTTP to all requests:</p>
 
-<pre><code>Authorization: Bearer [B64TOKEN]
-</code></pre>
+<pre><code>Authorization: Bearer [B64TOKEN]</code></pre>
 
 <p>To create the [B64TOKEN] value encode the access token using MIME Base 64.</p>
 
-<h5>
-<a name="parameter-based-authentication" class="anchor" href="#parameter-based-authentication"><span class="octicon octicon-link"></span></a>Parameter-based Authentication</h5>
+<h5 id="parameterbased_authentication"><span class="maruku_section_number">1.3.3.2. </span>Parameter-based Authentication</h5>
 
 <p>This method should only be used if a header cannot be set. The access token can be added to the query string of the API request:</p>
 
-<pre><code>/api/v1/hello?access_token=ACCESS_TOKEN
-</code></pre>
+<pre><code>/api/v1/hello?access_token=ACCESS_TOKEN</code></pre>
 
-<h3>
-<a name="format-requests-format" class="anchor" href="#format-requests-format"><span class="octicon octicon-link"></span></a>Format {#requests-format}</h3>
+<h3 id="requests-format"><span class="maruku_section_number">1.4. </span>Format</h3>
 
 <p>The preferred format for sending data to the api (using POST or PUT requests) is JSON. Other formats may be available. The format MUST be sepecified using the “Content-Type” head in the request.</p>
-
-<table>
-<thead><tr>
-<th>Format</th>
-<th>Content-Type</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>JSON</td>
-<td>application/json</td>
-</tr>
-<tr>
-<td>URL-encoded</td>
-<td>application/x-url-form-encoded</td>
-</tr>
-</tbody>
-</table><h3>
-<a name="parameters-requests-parameters" class="anchor" href="#parameters-requests-parameters"><span class="octicon octicon-link"></span></a>Parameters {#requests-parameters}</h3>
+<table><thead><tr><th>Format</th><th>Content-Type</th></tr></thead><tbody><tr><td style="text-align: left;">JSON</td><td style="text-align: left;">application/json</td>
+</tr><tr><td style="text-align: left;">URL-encoded</td><td style="text-align: left;">application/x-url-form-encoded</td>
+</tr></tbody></table>
+<h3 id="requests-parameters"><span class="maruku_section_number">1.5. </span>Parameters</h3>
 
 <p>A common set of parameters is used throughout the API for common tasks.</p>
 
-<h4>
-<a name="pagination" class="anchor" href="#pagination"><span class="octicon octicon-link"></span></a>Pagination</h4>
+<h4 id="pagination"><span class="maruku_section_number">1.5.1. </span>Pagination</h4>
 
 <p>All responses consisting of an array of objects are paginated.</p>
-
-<table>
-<thead><tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Default</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>page</td>
-<td>Page number of results to return</td>
-<td>integer</td>
-<td>1</td>
-</tr>
-<tr>
-<td>per_page</td>
-<td>Number of items to return per page</td>
-<td>integer</td>
-<td>20</td>
-</tr>
-</tbody>
-</table><h4>
-<a name="stream-item-type" class="anchor" href="#stream-item-type"><span class="octicon octicon-link"></span></a>Stream Item Type</h4>
+<table><thead><tr><th>Name</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td style="text-align: left;">page</td><td style="text-align: left;">Page number of results to return</td><td style="text-align: left;">integer</td><td style="text-align: left;">1</td>
+</tr><tr><td style="text-align: left;">per_page</td><td style="text-align: left;">Number of items to return per page</td><td style="text-align: left;">integer</td><td style="text-align: left;">20</td>
+</tr></tbody></table>
+<h4 id="stream_item_type"><span class="maruku_section_number">1.5.2. </span>Stream Item Type</h4>
 
 <p>An array of stream items can be filtered by post type using the parameter <code>type</code>. The following types are available. The type parameter should be sent as a comma-seperated list.</p>
-
-<table>
-<thead><tr>
-<th>Value</th>
-<th>Stream Item Type</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>announcements</td>
-<td><a href="#objects-announcement">Announcement</a></td>
-</tr>
-<tr>
-<td>brestpractices</td>
-<td><a href="#objects-bestpractice">Best Practice</a></td>
-</tr>
-<tr>
-<td>upsandchallenges</td>
-<td><a href="#objects-updown">Ups &amp; Challenge</a></td>
-</tr>
-</tbody>
-</table><h3>
-<a name="resources-requests-resources" class="anchor" href="#resources-requests-resources"><span class="octicon octicon-link"></span></a>Resources {#requests-resources}</h3>
+<table><thead><tr><th>Value</th><th>Stream Item Type</th></tr></thead><tbody><tr><td style="text-align: left;">announcements</td><td style="text-align: left;"><a href="#objects-announcement">Announcement</a></td>
+</tr><tr><td style="text-align: left;">brestpractices</td><td style="text-align: left;"><a href="#objects-bestpractice">Best Practice</a></td>
+</tr><tr><td style="text-align: left;">upsandchallenges</td><td style="text-align: left;"><a href="#objects-updown">Ups &amp; Challenge</a></td>
+</tr></tbody></table>
+<h3 id="requests-resources"><span class="maruku_section_number">1.6. </span>Resources</h3>
 
 <p>Where possible, endpoints represent resources, both collections and individual items. In this case, the pattern of URLs to actions is as follows:</p>
+<table><thead><tr><th>URL</th><th>HTTP Method</th><th>Action</th></tr></thead><tbody><tr><td style="text-align: left;">/PATH</td><td style="text-align: left;">GET</td><td style="text-align: left;">List available items.</td>
+</tr><tr><td style="text-align: left;">/PATH</td><td style="text-align: left;">POST</td><td style="text-align: left;">Create new item.</td>
+</tr><tr><td style="text-align: left;">/PATH/ID</td><td style="text-align: left;">GET</td><td style="text-align: left;">Read item details.</td>
+</tr><tr><td style="text-align: left;">/PATH/ID</td><td style="text-align: left;">PUT</td><td style="text-align: left;">Update an item.</td>
+</tr><tr><td style="text-align: left;">/PATH/ID</td><td style="text-align: left;">DELETE</td><td style="text-align: left;">Delete an item.</td>
+</tr></tbody></table>
+<h2 id="responses"><span class="maruku_section_number">2. </span>Responses</h2>
 
-<table>
-<thead><tr>
-<th>URL</th>
-<th>HTTP Method</th>
-<th>Action</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>/PATH</td>
-<td>GET</td>
-<td>List available items.</td>
-</tr>
-<tr>
-<td>/PATH</td>
-<td>POST</td>
-<td>Create new item.</td>
-</tr>
-<tr>
-<td>/PATH/ID</td>
-<td>GET</td>
-<td>Read item details.</td>
-</tr>
-<tr>
-<td>/PATH/ID</td>
-<td>PUT</td>
-<td>Update an item.</td>
-</tr>
-<tr>
-<td>/PATH/ID</td>
-<td>DELETE</td>
-<td>Delete an item.</td>
-</tr>
-</tbody>
-</table><h2>
-<a name="responses-responses" class="anchor" href="#responses-responses"><span class="octicon octicon-link"></span></a>Responses {#responses}</h2>
-
-<h3>
-<a name="format-responses-format" class="anchor" href="#format-responses-format"><span class="octicon octicon-link"></span></a>Format {#responses-format}</h3>
+<h3 id="responses-format"><span class="maruku_section_number">2.1. </span>Format</h3>
 
 <p>The response format should be requested using the HTTP Content-Type header. The following formats are currently available:</p>
+<table><thead><tr><th>Format</th><th>MIME Type</th></tr></thead><tbody><tr><td style="text-align: left;">JSON (default)</td><td style="text-align: left;">application/json</td>
+</tr></tbody></table>
+<h3 id="responses-success"><span class="maruku_section_number">2.2. </span>Successful Responses</h3>
 
-<table>
-<thead><tr>
-<th>Format</th>
-<th>MIME Type</th>
-</tr></thead>
-<tbody><tr>
-<td>JSON (default)</td>
-<td>application/json</td>
-</tr></tbody>
-</table><h3>
-<a name="successful-responses-responses-success" class="anchor" href="#successful-responses-responses-success"><span class="octicon octicon-link"></span></a>Successful Responses {#responses-success}</h3>
+<p>Successful requests will return with a 2xx status code. (Generally, requests retrieving data will return <code>200 OK</code> and requests adding data will return <code>201 Created</code>.) There is no wrapper for the data.</p>
 
-<p>Successful requests will return with a 2xx status code. (Generally, requests retrieving data will return <code>200 OK</code> and requests adding data will return <code>201 Created</code>.)  There is no wrapper for the data.</p>
-
-<p>Example:
-<code>GET /api/v1/hello</code></p>
+<p>Example: <code>GET /api/v1/hello</code></p>
 
 <pre><code>{
     “message”: “Hello World”
-}
-</code></pre>
+}</code></pre>
 
-<h3>
-<a name="error-responses-responses-error" class="anchor" href="#error-responses-responses-error"><span class="octicon octicon-link"></span></a>Error Responses {#responses-error}</h3>
+<h3 id="responses-error"><span class="maruku_section_number">2.3. </span>Error Responses</h3>
 
 <p>Error responses will be returned with a related HTTP status code. Common status codes include:</p>
+<table><thead><tr><th>Code</th><th>Text</th><th>Description</th></tr></thead><tbody><tr><td style="text-align: left;">401</td><td style="text-align: left;">Not Authorized</td><td style="text-align: left;">You did not send authorization credentials or you do not have permission to perform the requested action.</td>
+</tr><tr><td style="text-align: left;">404</td><td style="text-align: left;">Not Found</td><td style="text-align: left;">The resource you are accessing does not exist.</td>
+</tr><tr><td style="text-align: left;">403</td><td style="text-align: left;">Forbidden</td><td style="text-align: left;">The resource is unavailable. (This error will be returned if the API is not enabled for the client.)</td>
+</tr><tr><td style="text-align: left;">405</td><td style="text-align: left;">Method Not Allowed</td><td style="text-align: left;">The resource you are accessing exists, but does not accept the HTTP method you are using.</td>
+</tr><tr><td style="text-align: left;">415</td><td style="text-align: left;">Unsupported Media Type</td><td style="text-align: left;">The request was sent using a format that the API cannot accept.</td>
+</tr><tr><td style="text-align: left;">500</td><td style="text-align: left;">Internal Server Error</td><td style="text-align: left;">A server error occurred.</td>
+</tr><tr><td style="text-align: left;">501</td><td style="text-align: left;">Not Implemented</td><td style="text-align: left;">Your request was correct but the server cannot fulfil it.</td>
+</tr></tbody></table>
+<p>Also, the response body will include an error object. The element will include a human-readable message.</p>
 
-<table>
-<thead><tr>
-<th>Code</th>
-<th>Text</th>
-<th>Description</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>401</td>
-<td>Not Authorized</td>
-<td>You did not send authorization credentials or you do not have permission to perform the requested action.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found</td>
-<td>The resource you are accessing does not exist.</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden</td>
-<td>The resource is unavailable. (This error will be returned if the API is not enabled for the client.)</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed</td>
-<td>The resource you are accessing exists, but does not accept the HTTP method you are using.</td>
-</tr>
-<tr>
-<td>415</td>
-<td>Unsupported Media Type</td>
-<td>The request was sent using a format that the API cannot accept.</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error</td>
-<td>A server error occurred.</td>
-</tr>
-<tr>
-<td>501</td>
-<td>Not Implemented</td>
-<td>Your request was correct but the server cannot fulfil it.</td>
-</tr>
-</tbody>
-</table><p>Also, the response body will include an error object. The element will include a human-readable message.</p>
-
-<p>Example:
-<code>DELETE /api/v1/users/1</code></p>
+<p>Example: <code>DELETE /api/v1/users/1</code></p>
 
 <pre><code>{
     “error”: {
         “message”: “Method Not Allowed”
     }
-}
-</code></pre>
+}</code></pre>
+
+<h2 id="endpoints"><span class="maruku_section_number">3. </span>Endpoints</h2>
+
+<p>When submitting data via the API, not all properties of an object can be set. The available properties are listed after the object type.</p>
+
+<h3 id="applications"><span class="maruku_section_number">3.1. </span>Applications</h3>
+
+<h4 id="list_applications"><span class="maruku_section_number">3.1.1. </span>List applications</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/applications</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-application">Application</a> array</dd>
+</dl>
+
+<h3 id="endpoints-groups"><span class="maruku_section_number">3.2. </span>Groups</h3>
+
+<h4 id="list_groups"><span class="maruku_section_number">3.2.1. </span>List groups</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/groups</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-group">Group</a> array</dd>
+</dl>
+
+<h4 id="get_group_information"><span class="maruku_section_number">3.2.2. </span>Get group information</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/groups/GROUP_ID</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-group">Group</a></dd>
+</dl>
+
+<h4 id="get_a_group_profile_stream"><span class="maruku_section_number">3.2.3. </span>Get a group profile stream</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/groups/GROUP_ID/stream</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-streamitem">Stream Item</a> array</dd>
+</dl>
+
+<h4 id="post_a_status_to_a_group"><span class="maruku_section_number">3.2.4. </span>Post a status to a group</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/users/me/statuses</code> <!-- :(SHOULD BE `/groups/GROUP_ID/statuses`, BUT ISN'T CURRENTLY) --></dd>
+
+<dt>Method</dt>
+
+<dd><code>POST</code></dd>
+
+<dt>Request Content</dt>
+
+<dd><a href="#objects-note">Note</a> with fields: “content”, “group_id”</dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-note">Note</a></dd>
+</dl>
+
+<h3 id="endpoints-leaderboards"><span class="maruku_section_number">3.3. </span>Leaderboards</h3>
+
+<h4 id="list_available_leaderboards"><span class="maruku_section_number">3.3.1. </span>List available leaderboards</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/leaderboards</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Description</dt>
+
+<dd>Returns a list of available leaderboards.</dd>
+</dl>
+
+<ul>
+<li><code>metric-user</code> leaderboards contain the top users for the top five metrics.</li>
+
+<li><code>metric-group</code> leaderboards contain the top groups for the top five metrics.</li>
+
+<li><code>usage</code> leaderboards represent usage information, such as likes, posts, and comments.</li>
+</ul>
+
+<p><strong>Note:</strong> Each leaderboard section may not display, depending on the settings and availability of data on the client.</p>
+
+<dl>
+<dt>Response Content</dt>
+
+<dd>The following content:</dd>
+</dl>
+
+<h4 id="view_specific_leaderboard"><span class="maruku_section_number">3.3.2. </span>View Specific Leaderboard</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/leaderboards/CATEGORY/METRIC_ID</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Response Content</dt>
+
+<dd>The following content:</dd>
+</dl>
+
+<h4 id="a_profiles_position_in_a_leaderboard"><span class="maruku_section_number">3.3.3. </span>A Profile’s Position in a Leaderboard</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/leaderboards/CATEGORY/METRIC_ID/profile/ID/position</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Response Content</dt>
+
+<dd>The following content:</dd>
+</dl>
+
+<h3 id="endpoints-notifications"><span class="maruku_section_number">3.4. </span>Notifications</h3>
+
+<h4 id="list_a_users_notifications"><span class="maruku_section_number">3.4.1. </span>List a user’s notifications</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/notifications</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-notification">Notification</a> array</dd>
+</dl>
+
+<h3 id="endpoints-reporting"><span class="maruku_section_number">3.5. </span>Reporting</h3>
+
+<h4 id="list_reports_for_a_user"><span class="maruku_section_number">3.5.1. </span>List reports for a user</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/report/quantitative/USER_ID</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-report">Report</a> array</dd>
+</dl>
+
+<h4 id="get_a_users_report_from_a_specific_date"><span class="maruku_section_number">3.5.2. </span>Get a users report from a specific date</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/report/quantitative/USER_ID/DATE</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-report">Report</a></dd>
+</dl>
+
+<h4 id="report_qualitative_metrics"><span class="maruku_section_number">3.5.3. </span>Report qualitative metrics</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/report/qualitative</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Request Content</dt>
+
+<dd>Object with fields: “date” (date), “up” (string, optional), “down” (string, optional), “change” (string, optional), “bestpractice” (string, optional)</dd>
+
+<dt>Response Content</dt>
+
+<dd><code>{ “success”: true }</code></dd>
+</dl>
+
+<h4 id="metrics"><span class="maruku_section_number">3.5.4. </span>Metrics</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/metrics</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-reportmetric">Report Metric</a> array</dd>
+</dl>
+
+<h4 id="metrics_reportable_by_a_user"><span class="maruku_section_number">3.5.5. </span>Metrics reportable by a user</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/metrics/reportable-by-user/:USER_ID</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-reportmetric">Report Metric</a> array</dd>
+</dl>
+
+<h3 id="endpoints-roles"><span class="maruku_section_number">3.6. </span>Roles</h3>
+
+<h4 id="list_roles"><span class="maruku_section_number">3.6.1. </span>List roles</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/roles</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-role">Role</a> array</dd>
+</dl>
+
+<h4 id="get_role_information"><span class="maruku_section_number">3.6.2. </span>Get role information</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/roles/ROLE_ID</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-role">Role</a></dd>
+</dl>
+
+<h3 id="endpoints-stream"><span class="maruku_section_number">3.7. </span>Stream</h3>
+
+<h4 id="get_a_users_home_stream"><span class="maruku_section_number">3.7.1. </span>Get a user’s home stream</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/stream</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-streamitem">Stream Item</a> array</dd>
+</dl>
+
+<h4 id="get_a_stream_item"><span class="maruku_section_number">3.7.2. </span>Get a stream item</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/stream/ITEM_ID</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-streamitem">Stream Item</a></dd>
+</dl>
+
+<h4 id="get_comments_for_a_stream_item"><span class="maruku_section_number">3.7.3. </span>Get comments for a stream item</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/stream/ITEM_ID/comments</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-comment">Comment</a> array</dd>
+</dl>
+
+<h4 id="post_a_comment_to_a_stream_item"><span class="maruku_section_number">3.7.4. </span>Post a comment to a stream item</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/stream/ITEM_ID/comments</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>POST</code></dd>
+
+<dt>Request Content</dt>
+
+<dd><a href="#objects-comment">Comment</a> with fields: “content”</dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-comment">Comment</a></dd>
+</dl>
+
+<h4 id="get_a_single_comment_on_a_stream_item"><span class="maruku_section_number">3.7.5. </span>Get a single comment on a stream item</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/stream/ITEM_ID/comments/COMMENT_ID</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-comment">Comment</a></dd>
+</dl>
+
+<h4 id="delete_a_comment_on_a_stream_item"><span class="maruku_section_number">3.7.6. </span>Delete a comment on a stream item</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/stream/ITEM_ID/comments/COMMENT_ID</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>DELETE</code></dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-comment">Comment</a></dd>
+</dl>
+
+<h3 id="endpoints-users"><span class="maruku_section_number">3.8. </span>Users</h3>
+
+<h4 id="list_users"><span class="maruku_section_number">3.8.1. </span>List users</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/users</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-user">User</a> array</dd>
+</dl>
+
+<h4 id="get_user_information"><span class="maruku_section_number">3.8.2. </span>Get User Information</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/users/USER_ID</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-user">User</a></dd>
+</dl>
+
+<p>Note: The USER_ID of “me” will return information on the authenticated user.</p>
+
+<h4 id="get_a_user_profile_stream"><span class="maruku_section_number">3.8.3. </span>Get a user profile stream</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/users/USER_ID/stream</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>GET</code></dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-streamitem">Stream Item</a> array</dd>
+</dl>
+
+<h4 id="post_a_status"><span class="maruku_section_number">3.8.4. </span>Post a status</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/users/USER_ID/statuses</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>POST</code></dd>
+
+<dt>Request Content</dt>
+
+<dd><a href="#objects-note">Note</a> with fields: “content”</dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-note">Note</a></dd>
+</dl>
+
+<h4 id="post_to_another_users_wall"><span class="maruku_section_number">3.8.5. </span>Post to another user’s wall</h4>
+
+<dl>
+<dt>Path</dt>
+
+<dd><code>/users/me/statuses</code></dd>
+
+<dt>Method</dt>
+
+<dd><code>POST</code></dd>
+
+<dt>Request Content</dt>
+
+<dd><a href="#objects-note">Note</a> with fields: “content”, “user_id”</dd>
+
+<dt>Response Content</dt>
+
+<dd><a href="#objects-note">Note</a></dd>
+</dl>
+
+<h2 id="objects"><span class="maruku_section_number">4. </span>Objects</h2>
+
+<p>Most objects contain a property “objectType” that can be used to identify the type in the cases where more than one type can be returned. When an object is returned as a property of another object, it may be stubbed. A stubbed object returns a minimal number of properties (usually just the ID). Optional properties will only be returned if they are set.</p>
+
+<p>The formats “boolean”, “integer”, “number”, and “string” refer to standard types. (Integers are signed.) The format “date” represents an ISO 8601 date string. The format “datetime” represents an ISO 8601 date and time.</p>
+
+<h3 id="objects-announcement"><span class="maruku_section_number">4.1. </span>Announcement</h3>
+<table class="object"><thead><tr><th>Property</th><th>Description</th><th>Format</th></tr></thead><tbody><tr><td style="text-align: left;">objectType</td><td style="text-align: left;">-</td><td style="text-align: left;">“announcement”</td>
+</tr><tr><td style="text-align: left;">id</td><td style="text-align: left;">Announcement id</td><td style="text-align: left;">integer</td>
+</tr><tr><td style="text-align: left;">title</td><td style="text-align: left;">Text of the announcement.</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">created_at</td><td style="text-align: left;">Date/time when announcement was posted</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">author</td><td style="text-align: left;">User who posted the announcement</td><td style="text-align: left;"><a href="#objects-user">User</a></td>
+</tr><tr><td style="text-align: left;">group</td><td style="text-align: left;">Group to which the announcement was posted</td><td style="text-align: left;"><a href="#objects-group">Group</a></td>
+</tr></tbody></table>
+<h3 id="objects-application"><span class="maruku_section_number">4.2. </span>Application</h3>
+<table><thead><tr><th>Property</th><th>Description</th><th>Format</th></tr></thead><tbody><tr><td style="text-align: left;">name</td><td style="text-align: left;">Name of the app</td><td style="text-align: left;">string</td>
+</tr></tbody></table>
+<h3 id="objects-bestpractice"><span class="maruku_section_number">4.3. </span>Best Practice</h3>
+<table class="object"><thead><tr><th>Property</th><th>Description</th><th>Format</th></tr></thead><tbody><tr><td style="text-align: left;">objectType</td><td style="text-align: left;">-</td><td style="text-align: left;">“bestpractice”</td>
+</tr><tr><td style="text-align: left;">id</td><td style="text-align: left;">Best practice id</td><td style="text-align: left;">integer</td>
+</tr><tr><td style="text-align: left;">title</td><td style="text-align: left;">Text of the best practice.</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">created_at</td><td style="text-align: left;">Date/time when best practice was posted</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">author</td><td style="text-align: left;">User who posted the best practice.</td><td style="text-align: left;"><a href="#objects-user">User</a></td>
+</tr><tr><td style="text-align: left;">group</td><td style="text-align: left;">Group to which the best practice was posted</td><td style="text-align: left;"><a href="#objects-group">Group</a></td>
+</tr></tbody></table>
+<h3 id="objects-comment"><span class="maruku_section_number">4.4. </span>Comment</h3>
+<table class="object"><thead><tr><th>Property</th><th>Description</th><th>Format</th></tr></thead><tbody><tr><td style="text-align: left;">objectType</td><td style="text-align: left;">-</td><td style="text-align: left;">“comment”</td>
+</tr><tr><td style="text-align: left;">id</td><td style="text-align: left;">Comment id</td><td style="text-align: left;">integer</td>
+</tr><tr><td style="text-align: left;">content</td><td style="text-align: left;">Text of the comment.</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">created_at</td><td style="text-align: left;">Date/time when comment was posted</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">author</td><td style="text-align: left;">User who posted the comment</td><td style="text-align: left;"><a href="#objects-user">User</a></td>
+</tr></tbody></table>
+<h3 id="objects-event"><span class="maruku_section_number">4.5. </span>Event</h3>
+<table class="object"><thead><tr><th>Property</th><th>Description</th><th>Format</th></tr></thead><tbody><tr><td style="text-align: left;">objectType</td><td style="text-align: left;">-</td><td style="text-align: left;">“event”</td>
+</tr><tr><td style="text-align: left;">id</td><td style="text-align: left;">Event id</td><td style="text-align: left;">integer</td>
+</tr><tr><td style="text-align: left;">title</td><td style="text-align: left;">Title of the event</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">startTime</td><td style="text-align: left;">Start time of the event</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">created_at</td><td style="text-align: left;">Date/time when the note was posted</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">update_at</td><td style="text-align: left;">Date/time when the note was updated</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">location</td><td style="text-align: left;">Location of the event</td><td style="text-align: left;"><a href="#objects-location">Location</a></td>
+</tr><tr><td style="text-align: left;">author</td><td style="text-align: left;">User who created the note</td><td style="text-align: left;"><a href="#objects-user">User</a></td>
+</tr><tr><td style="text-align: left;">group</td><td style="text-align: left;">Group for the event</td><td style="text-align: left;"><a href="#objects-group">Group</a></td>
+</tr></tbody></table>
+<h3 id="objects-file"><span class="maruku_section_number">4.6. </span>File</h3>
+<table class="object"><thead><tr><th>Property</th><th>Description</th><th>Format</th></tr></thead><tbody><tr><td style="text-align: left;">objectType</td><td style="text-align: left;">-</td><td style="text-align: left;">“file”</td>
+</tr><tr><td style="text-align: left;">id</td><td style="text-align: left;">File id</td><td style="text-align: left;">integer</td>
+</tr><tr><td style="text-align: left;">displayName</td><td style="text-align: left;">File name</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">title</td><td style="text-align: left;">Description of the file</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">created_at</td><td style="text-align: left;">Date/time when the file was posted</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">update_at</td><td style="text-align: left;">Date/time when the file was updated</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">author</td><td style="text-align: left;">User who posted the file</td><td style="text-align: left;"><a href="#objects-user">User</a></td>
+</tr><tr><td style="text-align: left;">target</td><td style="text-align: left;">Target stream for the file</td><td style="text-align: left;"><a href="#objects-user">User</a> or <a href="#objects-group">Group</a></td>
+</tr></tbody></table>
+<h3 id="objects-group"><span class="maruku_section_number">4.7. </span>Group</h3>
+<table class="object"><thead><tr><th>Property</th><th>Description</th><th>Format</th></tr></thead><tbody><tr><td style="text-align: left;">objectType</td><td style="text-align: left;">-</td><td style="text-align: left;">“group”</td>
+</tr><tr><td style="text-align: left;">id</td><td style="text-align: left;">Group id</td><td style="text-align: left;">integer</td>
+</tr><tr><td style="text-align: left;">parent_id</td><td style="text-align: left;">Id of the parent group.</td><td style="text-align: left;">integer</td>
+</tr><tr><td style="text-align: left;">displayName</td><td style="text-align: left;">Group name.</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">description</td><td style="text-align: left;">Group description.</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">type</td><td style="text-align: left;">Type of group</td><td style="text-align: left;">string “group” or “project”</td>
+</tr><tr><td style="text-align: left;">privacy</td><td style="text-align: left;">(Optional) Privacy level of project.</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">picture</td><td style="text-align: left;">URLs for small (25x25), medium (50x50) and large (200x200) versions of group profile picture</td><td style="text-align: left;">string array with keys: “small”, “medium”, “large”</td>
+</tr></tbody></table>
+<h3 id="objects-location"><span class="maruku_section_number">4.8. </span>Location</h3>
+<table class="object"><thead><tr><th>Property</th><th>Description</th><th>Format</th></tr></thead><tbody><tr><td style="text-align: left;">displayName</td><td style="text-align: left;">Location name</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">address</td><td style="text-align: left;">Location address</td><td style="text-align: left;">strig array with keys “city” and “state”</td>
+</tr></tbody></table>
+<h3 id="objects-note"><span class="maruku_section_number">4.9. </span>Note</h3>
+<table class="object"><thead><tr><th>Property</th><th>Description</th><th>Format</th></tr></thead><tbody><tr><td style="text-align: left;">objectType</td><td style="text-align: left;">-</td><td style="text-align: left;">“note”</td>
+</tr><tr><td style="text-align: left;">id</td><td style="text-align: left;">Note id</td><td style="text-align: left;">integer</td>
+</tr><tr><td style="text-align: left;">content</td><td style="text-align: left;">Text of the note.</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">created_at</td><td style="text-align: left;">Date/time when the note was posted</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">update_at</td><td style="text-align: left;">Date/time when the note was updated</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">author</td><td style="text-align: left;">User who posted the note</td><td style="text-align: left;">User object</td>
+</tr><tr><td style="text-align: left;">target</td><td style="text-align: left;">Target stream for the note</td><td style="text-align: left;"><a href="#objects-user">User</a> or <a href="#objects-group">Group</a></td>
+</tr></tbody></table>
+<h3 id="objects-notification"><span class="maruku_section_number">4.10. </span>Notification</h3>
+<table class="object"><thead><tr><th>Property</th><th>Description</th><th>Format</th></tr></thead><tbody><tr><td style="text-align: left;">objectType</td><td style="text-align: left;">-</td><td style="text-align: left;">“notification”</td>
+</tr><tr><td style="text-align: left;">id</td><td style="text-align: left;">Notification id</td><td style="text-align: left;">integer</td>
+</tr><tr><td style="text-align: left;">title</td><td style="text-align: left;">Text of the notification</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">created_at</td><td style="text-align: left;">Date/time when notification was created</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">target</td><td style="text-align: left;">User who initiated the action.</td><td style="text-align: left;"><a href="#objects-user">User</a></td>
+</tr><tr><td style="text-align: left;">actor</td><td style="text-align: left;">Target of the action</td><td style="text-align: left;"><a href="#objects-user">User</a></td>
+</tr><tr><td style="text-align: left;">object</td><td style="text-align: left;">Object of the action</td><td style="text-align: left;">Object</td>
+</tr></tbody></table>
+<h3 id="objects-report"><span class="maruku_section_number">4.11. </span>Report</h3>
+<table class="object"><thead><tr><th>Property</th><th>Description</th><th>Format</th></tr></thead><tbody><tr><td style="text-align: left;">objectType</td><td style="text-align: left;">-</td><td style="text-align: left;">“report”</td>
+</tr><tr><td style="text-align: left;">id</td><td style="text-align: left;">Report id</td><td style="text-align: left;">integer</td>
+</tr><tr><td style="text-align: left;">created_at</td><td style="text-align: left;">Date/time when the report was posted</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">update_at</td><td style="text-align: left;">Date/time when the report was updated</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">author</td><td style="text-align: left;">User for the report</td><td style="text-align: left;"><a href="#objects-user">User</a></td>
+</tr><tr><td style="text-align: left;">group</td><td style="text-align: left;">Group for the report</td><td style="text-align: left;"><a href="#objects-group">Group</a></td>
+</tr><tr><td style="text-align: left;">aggregate</td><td style="text-align: left;">Report has aggregate metrics</td><td style="text-align: left;">boolean</td>
+</tr><tr><td style="text-align: left;">core</td><td style="text-align: left;">Report has core metrics</td><td style="text-align: left;">boolean</td>
+</tr><tr><td style="text-align: left;">date</td><td style="text-align: left;">Date for report</td><td style="text-align: left;">date</td>
+</tr><tr><td style="text-align: left;">reported_by</td><td style="text-align: left;">ID of user reported by (if different than author)</td><td style="text-align: left;">integer</td>
+</tr><tr><td style="text-align: left;">reported_to</td><td style="text-align: left;">ID of user reported to (if different than reported_by)</td><td style="text-align: left;">integer</td>
+</tr><tr><td style="text-align: left;">data</td><td style="text-align: left;">(Optional) Report data</td><td style="text-align: left;"><a href="#objects-reportcategory">Report Category</a> array</td>
+</tr></tbody></table>
+<h3 id="objects-reportcategory"><span class="maruku_section_number">4.12. </span>Report Category</h3>
+<table class="object"><thead><tr><th>Property</th><th>Description</th><th>Format</th></tr></thead><tbody><tr><td style="text-align: left;">objectType</td><td style="text-align: left;">-</td><td style="text-align: left;">“report-category”</td>
+</tr><tr><td style="text-align: left;">id</td><td style="text-align: left;">Report category id</td><td style="text-align: left;">integer</td>
+</tr><tr><td style="text-align: left;">created_at</td><td style="text-align: left;">Date/time when the caetgory was created</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">update_at</td><td style="text-align: left;">Date/time when the category was updated</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">name</td><td style="text-align: left;">Report category name</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">description</td><td style="text-align: left;">Report category description</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">rank</td><td style="text-align: left;">Rank order for report category</td><td style="text-align: left;">integer</td>
+</tr><tr><td style="text-align: left;">core</td><td style="text-align: left;">Category has core metrics</td><td style="text-align: left;">boolean</td>
+</tr><tr><td style="text-align: left;">metrics</td><td style="text-align: left;">(Optional) Report metrics</td><td style="text-align: left;"><a href="#objects-reportmetric">Report Metric</a> array</td>
+</tr></tbody></table>
+<h3 id="objects-reportmetric"><span class="maruku_section_number">4.13. </span>Report Metric</h3>
+<table class="object"><thead><tr><th>Property</th><th>Description</th><th>Format</th></tr></thead><tbody><tr><td style="text-align: left;">objectType</td><td style="text-align: left;">-</td><td style="text-align: left;">“report-metric”</td>
+</tr><tr><td style="text-align: left;">id</td><td style="text-align: left;">Report metric id</td><td style="text-align: left;">integer</td>
+</tr><tr><td style="text-align: left;">created_at</td><td style="text-align: left;">Date/time when the metric was created</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">update_at</td><td style="text-align: left;">Date/time when the metric was updated</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">name</td><td style="text-align: left;">Report metric name</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">description</td><td style="text-align: left;">Report metric description</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">rank</td><td style="text-align: left;">Rank order for report metric</td><td style="text-align: left;">integer</td>
+</tr><tr><td style="text-align: left;">numeric</td><td style="text-align: left;">Is numeric</td><td style="text-align: left;">boolean</td>
+</tr><tr><td style="text-align: left;">active</td><td style="text-align: left;">Is active</td><td style="text-align: left;">boolean</td>
+</tr><tr><td style="text-align: left;">display</td><td style="text-align: left;">Should display</td><td style="text-align: left;">boolean</td>
+</tr><tr><td style="text-align: left;">type</td><td style="text-align: left;">Metric type</td><td style="text-align: left;">“self-reported” or “calculated”</td>
+</tr><tr><td style="text-align: left;">values</td><td style="text-align: left;">(Optional) Metric values</td><td style="text-align: left;"><a href="#objects-reportvalue">Report Value</a> array</td>
+</tr></tbody></table>
+<h3 id="objects-reportvalue"><span class="maruku_section_number">4.14. </span>Report Value</h3>
+<table class="object"><thead><tr><th>Property</th><th>Description</th><th>Format</th></tr></thead><tbody><tr><td style="text-align: left;">id</td><td style="text-align: left;">Report value id</td><td style="text-align: left;">integer</td>
+</tr><tr><td style="text-align: left;">created_at</td><td style="text-align: left;">Date/time when the value was created</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">update_at</td><td style="text-align: left;">Date/time when the value was updated</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">value</td><td style="text-align: left;">Data value</td><td style="text-align: left;">mixed</td>
+</tr></tbody></table>
+<h3 id="objects-role"><span class="maruku_section_number">4.15. </span>Role</h3>
+<table class="object"><thead><tr><th>Property</th><th>Description</th><th>Format</th></tr></thead><tbody><tr><td style="text-align: left;">objectType</td><td style="text-align: left;">-</td><td style="text-align: left;">“role”</td>
+</tr><tr><td style="text-align: left;">id</td><td style="text-align: left;">Role id</td><td style="text-align: left;">integer</td>
+</tr><tr><td style="text-align: left;">displayName</td><td style="text-align: left;">Role name</td><td style="text-align: left;">string</td>
+</tr></tbody></table>
+<h3 id="objects-streamitem"><span class="maruku_section_number">4.16. </span>Stream Item</h3>
+
+<p>See also “About Stream Items”, below.</p>
+<table class="object"><thead><tr><th>Property</th><th>Description</th><th>Format</th></tr></thead><tbody><tr><td style="text-align: left;">id</td><td style="text-align: left;">Stream item id</td><td style="text-align: left;">integer</td>
+</tr><tr><td style="text-align: left;">published</td><td style="text-align: left;">Date/time when the stream item was published</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">verb</td><td style="text-align: left;">Action taken</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">actor</td><td style="text-align: left;">(Optional) The entity that performed the action</td><td style="text-align: left;"><a href="#objects-user">User</a></td>
+</tr><tr><td style="text-align: left;">object</td><td style="text-align: left;">The object on which the action was taken</td><td style="text-align: left;">Object</td>
+</tr><tr><td style="text-align: left;">target</td><td style="text-align: left;">(Optional) The target to which the action was taken</td><td style="text-align: left;">Object</td>
+</tr><tr><td style="text-align: left;">likes</td><td style="text-align: left;">Users who liked the stream item</td><td style="text-align: left;"><a href="#objects-user">User</a> array</td>
+</tr><tr><td style="text-align: left;">comments</td><td style="text-align: left;">Comments on the stream item</td><td style="text-align: left;"><a href="#objects-comment">Comment</a> array</td>
+</tr></tbody></table>
+<h3 id="objects-updown"><span class="maruku_section_number">4.17. </span>Up &amp; Challenge</h3>
+<table class="object"><thead><tr><th>Property</th><th>Description</th><th>Format</th></tr></thead><tbody><tr><td style="text-align: left;">objectType</td><td style="text-align: left;">-</td><td style="text-align: left;">“updown”</td>
+</tr><tr><td style="text-align: left;">id</td><td style="text-align: left;">Up &amp; challenge id</td><td style="text-align: left;">integer</td>
+</tr><tr><td style="text-align: left;">content</td><td style="text-align: left;">Text of the up &amp; challenge</td><td style="text-align: left;">string array with keys: “ups”, “down”, “change”</td>
+</tr><tr><td style="text-align: left;">created_at</td><td style="text-align: left;">Date/time when up &amp; challenge was posted</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">author</td><td style="text-align: left;">User who posted the up &amp; challenge</td><td style="text-align: left;"><a href="#objects-user">User</a></td>
+</tr><tr><td style="text-align: left;">group</td><td style="text-align: left;">Group to which the up &amp; challenge was posted</td><td style="text-align: left;"><a href="#objects-group">Group</a></td>
+</tr></tbody></table>
+<h3 id="objects-user"><span class="maruku_section_number">4.18. </span>User</h3>
+<table class="object"><thead><tr><th>Property</th><th>Description</th><th>Format</th></tr></thead><tbody><tr><td style="text-align: left;">objectType</td><td style="text-align: left;">-</td><td style="text-align: left;">“person”</td>
+</tr><tr><td style="text-align: left;">id</td><td style="text-align: left;">User id</td><td style="text-align: left;">integer</td>
+</tr><tr><td style="text-align: left;">created_at</td><td style="text-align: left;">Date/time when user registered</td><td style="text-align: left;">datetime</td>
+</tr><tr><td style="text-align: left;">email</td><td style="text-align: left;">User’s email address</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">first_name</td><td style="text-align: left;">User’s first name</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">middle_name</td><td style="text-align: left;">(Optional) User’s middle name</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">last_name</td><td style="text-align: left;">User’s last name</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">displayName</td><td style="text-align: left;">User’s display name</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">birthday</td><td style="text-align: left;">(Optional) User’s date of birth</td><td style="text-align: left;">date</td>
+</tr><tr><td style="text-align: left;">gender</td><td style="text-align: left;">(Optional) User’s gender</td><td style="text-align: left;">“male” or “female”</td>
+</tr><tr><td style="text-align: left;">timezone</td><td style="text-align: left;">(Optional) User’s timezone setting as UTC offset</td><td style="text-align: left;">number</td>
+</tr><tr><td style="text-align: left;">language</td><td style="text-align: left;">(Optional) User’s language setting as ISO 639-1 code</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">title</td><td style="text-align: left;">(Optional) User’s title</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">bio</td><td style="text-align: left;">(Optional) User’s bio</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">picture</td><td style="text-align: left;">URLs for small (25x25), medium (50x50) and large (200x200) versions of user profile picture</td><td style="text-align: left;">string array with keys: “small”, “medium”, “large”</td>
+</tr><tr><td style="text-align: left;">address</td><td style="text-align: left;">(Optional) User’s address</td><td style="text-align: left;">string array with keys: “street”, “city”, “county”, “state”, “postal”, “country”</td>
+</tr><tr><td style="text-align: left;">mobile_phone</td><td style="text-align: left;">(Optional) User’s mobile phone number</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">home_phone</td><td style="text-align: left;">(Optional) User’s home phone number</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">work_phone</td><td style="text-align: left;">(Optional) User’s work phone number</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">facebook</td><td style="text-align: left;">(Optional) User’s Facebook username</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">twitter</td><td style="text-align: left;">(Optional) User’s Twitter username</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">google</td><td style="text-align: left;">(Optional) User’s Google username</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">aim</td><td style="text-align: left;">(Optional) User’s AOL username</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">yahoo</td><td style="text-align: left;">(Optional) User’s Yahoo! username</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">skype</td><td style="text-align: left;">(Optional) User’s Skype ID</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">website</td><td style="text-align: left;">(Optional) User’s website URL</td><td style="text-align: left;">string</td>
+</tr><tr><td style="text-align: left;">group</td><td style="text-align: left;">(Optional) User’s group</td><td style="text-align: left;"><a href="#objects-group">Group</a></td>
+</tr><tr><td style="text-align: left;">role</td><td style="text-align: left;">(Optional) User’s role</td><td style="text-align: left;"><a href="#objects-role">Role</a></td>
+</tr><tr><td style="text-align: left;">manager</td><td style="text-align: left;">(Optional) User’s manager</td><td style="text-align: left;"><a href="#objects-user">User</a></td>
+</tr></tbody></table>
+<h2 id="activitystreams"><span class="maruku_section_number">5. </span>About Activity Streams</h2>
+
+<p>The stream is represented using concepts from the <a href="http://activitystrea.ms/">Activity Streams</a> specification. It allows a standard representation of different types of actions.</p>
+
+<p>Note: The stream endpoints should not be processed as per the Activity Streams specification. The endpoints return only objects for the original action and not for every subsequent action (like, comment, etc).</p>
+
+<h3 id="activitystreams-verb"><span class="maruku_section_number">5.1. </span>Verb</h3>
+
+<p>Every Stream Item has a verb. The verb indicates the action begin taken. The NationalField API uses verbs from the <a href="http://activitystrea.ms/head/activity-schema.html#verbs">Activity Streams specification</a> where possible, but may use other words when necessary to represent non-standard concepts.</p>
+
+<p>The verbs currently used in the API are: add, follow, join, post, and update</p>
+
+<h3 id="activitystreams-actor"><span class="maruku_section_number">5.2. </span>Actor</h3>
+
+<p>The actor is the entity (person, group) that performed the action.</p>
+
+<h3 id="activitystreams-object"><span class="maruku_section_number">5.3. </span>Object</h3>
+
+<p>The entity on which the action was performed. For example, when uploading a file to a group, the file is the object.</p>
+
+<h3 id="activitystreams-target"><span class="maruku_section_number">5.4. </span>Target</h3>
+
+<p>The object to which the action was performed. For example, when adding a user to a group, the group is the target.</p>
+
+<p>Examples:</p>
+<table><thead><tr><th>Verb</th><th>Actor</th><th>Object</th><th>Target</th><th>Description</th></tr></thead><tbody><tr><td style="text-align: left;">post</td><td style="text-align: left;">John Doe (User)</td><td style="text-align: left;">Announcement</td><td style="text-align: left;">Accounting (Group)</td><td style="text-align: left;">John Doe posted an announcement to Accounting.</td>
+</tr><tr><td style="text-align: left;">join</td><td style="text-align: left;">-</td><td style="text-align: left;">Jane Doe (User)</td><td style="text-align: left;">Marketing (Group)</td><td style="text-align: left;">Jane Doe was added to the Marketing group.</td>
+</tr><tr><td style="text-align: left;">add</td><td style="text-align: left;">Fred Bloggs (User)</td><td style="text-align: left;">Event</td><td style="text-align: left;">Facilities (Group)</td><td style="text-align: left;">Fred Bloggs created an event for the Facilities group.</td>
+</tr></tbody></table>
+    </div>
       </section>
       <footer>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
